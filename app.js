@@ -23,6 +23,10 @@
 
 // console.log(brad.calculateAge())
 
+
+
+
+
 //2) Build in Constructors
 
 //String
@@ -85,3 +89,113 @@
 // const reg2 = new RegExp('\\w+')
 
 // console.log(reg2);
+
+
+
+
+// // 3) Prototypes
+
+
+// // Object.prototype
+
+// function Person(firstName, lastName, dob) {
+//   this.firstName = firstName
+//   this.lastName = lastName
+//   this.birthday = new Date(dob)
+//   // this.calculateAge = function () {
+//   //   const diff = Date.now() - this.birthday.getTime()
+//   //   const ageDate = new Date(diff)
+//   //   return Math.abs(ageDate.getUTCFullYear() - 1970)
+//   // }
+// }
+
+// // Calculate age
+
+// Person.prototype.calculateAge = function () {
+//   const diff = Date.now() - this.birthday.getTime()
+//   const ageDate = new Date(diff)
+//   return Math.abs(ageDate.getUTCFullYear() - 1970)
+// }
+
+// // Get full name
+
+// Person.prototype.getFullName = function () {
+//   return `${this.firstName} ${this.lastName}`
+// }
+
+// // Get Married
+
+// Person.prototype.getsMarried = function (newLastName) {
+//   this.lastName = newLastName
+// }
+
+// const john = new Person('John', 'Doe', '8-12-90')
+// const mary = new Person('Mary', 'Jane', 'March 20 1978')
+
+// console.log(mary)
+
+// console.log(john.calculateAge())
+// console.log(mary.getFullName())
+
+// mary.getsMarried('Smith')
+
+// console.log(mary.getFullName())
+
+// console.log(mary.hasOwnProperty('firstName')); //true
+// console.log(mary.hasOwnProperty('getFullName')); //false
+
+
+
+// 4) Prototypal Inheritance 
+
+
+function Person(firstName, lastName) {
+  this.firstName = firstName
+  this.lastName = lastName
+}
+
+// Greeting
+
+// Person.prototype.greeting = function () {
+//   return `Hello there ${this.firstName} ${this.lastName}`
+// }
+
+// const person1 = new Person('John', 'Doe')
+
+// // console.log(person1.greeting());
+
+// // Customer constructor
+
+// function Customer(firstName, lastName, phone, membership) {
+//   Person.call(this, firstName, lastName)
+
+//   this.phone = phone
+//   this.membership = membership
+// }
+
+// // Inherit the Person prototype method
+
+// Customer.prototype = Object.create(Person.prototype)
+
+// // Make customer.prototype return Customer()
+
+// Customer.prototype.constructor = Customer
+
+// // Create a customer 
+
+// const customer1 = new Customer('Tom', 'Smith', '555-555-5555', 'Standard')
+
+// console.log(customer1)
+
+// // Customer greeting
+
+// Customer.prototype.greeting = function () {
+//   return `Hello there ${this.firstName} ${this.lastName} - Welcome to our company`
+// }
+
+// console.log(customer1.greeting());
+
+
+
+
+// 5)Using Object.create
